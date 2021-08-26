@@ -18,15 +18,14 @@
 [test](https://github.com/tmvld97/Hospital_INFO_Chatbot/tree/master/test) : 챗봇 개발에 필요한 테스트 코드<br/>
 
 ## 엔진 처리 과정
-* 전처리 과정
-    * 전처리
-    * 단어 사전 구축 및 시퀀스 생성
-* 의도 분석
-* 개체명 인식
-* 답변 검색
-    * 데이터베이스 제어모듈 생성
-* 답변 출력
-    * 답변 검색 모듈 생성
+* 전처리
+    * [전처리 모듈](https://github.com/tmvld97/Hospital_INFO_Chatbot/blob/master/utils/Preprocess.py)
+    * [단어 사전 구축 및 시퀀스 생성](https://github.com/tmvld97/Hospital_INFO_Chatbot/tree/master/train_tools/dict)
+* [의도파악](https://github.com/tmvld97/Hospital_INFO_Chatbot/tree/master/models/intent)
+* [개체명 인식](https://github.com/tmvld97/Hospital_INFO_Chatbot/tree/master/models/ner)
+* 답변 검색 및 출력
+    * [데이터베이스 제어모듈 생성](https://github.com/tmvld97/Hospital_INFO_Chatbot/blob/master/utils/Database.py)
+    * [답변 검색 모듈 생성](https://github.com/tmvld97/Hospital_INFO_Chatbot/blob/master/utils/FindAnswer.py)
 
 ## 엔진 서버 개발
 
