@@ -6,8 +6,8 @@ p = Preprocess(word2index_dic='../train_tools/dict/chatbot_dict.bin',
 
 ner = NerModel(model_name='../models/ner/ner_train.h5', proprocess=p)
 hos = '고려병원'; city = '김포시'; s_c = '장기동'
-query = []
-query.append('김포시에 있는 피부과 병원 리스트')
+query = ['고려병원 진료과목 알려줭']
+
 # query.append(hos + ' 정보!')
 # query.append(hos + '과 관련된 정보가 궁금해')
 # query.append(hos + ' 진료과목 알려주세요!')

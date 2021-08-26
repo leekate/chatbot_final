@@ -1678,3 +1678,4 @@ None	NNG
 시흥	NNG
 성남	NNG
 파주	NNG
+김포우리병원	NNG

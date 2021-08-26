@@ -6,7 +6,7 @@ from tensorflow.keras.layers import Input, Embedding, Dense, Dropout, Conv1D, Gl
 
 
 # 데이터 읽어오기
-train_file = "total_train.csv"
+train_file = "test.csv"
 data = pd.read_csv(train_file, delimiter=',')
 queries = data['query'].tolist()
 intents = data['intent'].tolist()
@@ -87,8 +87,8 @@ concat = concatenate([pool1, pool2, pool3])
 
 hidden = Dense(128, activation=tf.nn.relu)(concat)
 dropout_hidden = Dropout(rate=dropout_prob)(hidden)
-logits = Dense(3, name='logits')(dropout_hidden)
-predictions = Dense(3, activation=tf.nn.softmax)(logits)
+logits = Dense(4, name='logits')(dropout_hidden)
+predictions = Dense(4, activation=tf.nn.softmax)(logits)
 
 
 # 모델 생성  ○5
@@ -109,4 +109,4 @@ print('loss: %f' % (loss))
 #
 #
 # # 모델 저장  ○8
-model.save('intent_model.h5')
+model.save('test_intent_model.h5')

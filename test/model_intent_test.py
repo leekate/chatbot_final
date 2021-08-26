@@ -6,12 +6,15 @@ p = Preprocess(word2index_dic='../train_tools/dict/chatbot_dict.bin',
 
 intent = IntentModel(model_name='../models/intent/intent_model.h5', proprocess=p)
 query = []
-query.append('김포시 장기동 병원 목록')
-query.append('김포시 병원 리스트')
-query.append('김포시 성형외과')
-query.append('연천군 종합병원 알려줘')
-query.append('병원 리스트 알려줘')
-query.append('고양시 덕양구 병원 리스트 알려줘')
+
+# query.append('하이!')
+query.append('주변 피부과 병원')
+# query.append('병원 리스트 알려줘')
+# query.append('고양시 덕양구 병원 리스트 알려줘')
+# query.append('김포시')
+# query.append('안양윌스기념병원 정보')
+# query.append('남양주시')
+# query.append('남양주')
 
 for item in query :
     predict = intent.predict_class(item)
