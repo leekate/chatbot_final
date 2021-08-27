@@ -27,10 +27,24 @@
     * [데이터베이스 제어모듈 생성](https://github.com/tmvld97/Hospital_INFO_Chatbot/blob/master/utils/Database.py)
     * [답변 검색 모듈 생성](https://github.com/tmvld97/Hospital_INFO_Chatbot/blob/master/utils/FindAnswer.py)
 
+[Test.py](https://github.com/tmvld97/Hospital_INFO_Chatbot/tree/master/test)
 ## 엔진 서버 개발
+* Cloud Server
+* [TCP socet Server](https://github.com/tmvld97/Hospital_INFO_Chatbot/blob/master/utils/BotServer.py)
+* [chatbot main engine server](https://github.com/tmvld97/Hospital_INFO_Chatbot/blob/master/bot.py)
+[챗봇 내부 엔진 서버 테스트](https://github.com/tmvld97/Hospital_INFO_Chatbot/blob/master/test/chatbot_client_test.py)<br/>
+**테스트 전 메인 엔진 서버 프로그램이 구동된 상태여야 함**
 
+## CHATBOT API
+[API 서버 디렉터리](https://github.com/tmvld97/Hospital_INFO_Chatbot/tree/master/chatbot_api)
+* chatbot_api
+    * app.py
+    * KakaoTemplate.py
 
-
-
-
-
+## 개발노트
+1. readme 정리<br/>
+2. 동시접속 가능한지 확인 (kakao 09:00~18:00 제한)<br/>
+3. 말풍선 i open builder 참고<br/>
+4. 추가기능(지역별 경고, 상위4개 진료)<br/>
+5. **학습모듈 에러 검출**<br/>
+6. **AWS 설정**

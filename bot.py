@@ -18,7 +18,7 @@ p = Preprocess(word2index_dic='train_tools/dict/chatbot_dict.bin',
 intent = IntentModel(model_name='models/intent/intent_model.h5', proprocess=p)
 
 # 개체명 인식 모델
-ner = NerModel(model_name='models/ner/ner_model.h5', proprocess=p)
+ner = NerModel(model_name='models/ner/ner_train.h5', proprocess=p)
 
 
 def to_client(conn, addr, params):
@@ -85,7 +85,7 @@ if __name__ == '__main__':
 
     # 질문/답변 학습 디비 연결 객체 생성
     db = Database(
-        host=DB_HOST, user=DB_USER, password=DB_PW, db_name=DB_NAME, db_port=DB_PORT
+        host=DB_HOST, user=DB_USER, password=DB_PASSWORD, db_name=DB_NAME, db_port=DB_PORT
     )
     print("DB 접속")
 

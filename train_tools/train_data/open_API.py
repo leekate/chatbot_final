@@ -36,11 +36,11 @@ REFINE_WGS84_LOGT	경도
 # 길찾기, 기타등등
 """
 
+
 def remove_redundancy(list_A) :           # list 중복제거 함수
     set_list = set(list_A)
     remove_list = list(set_list)
     return remove_list
-
 
 # # 파일경로 지정
 # # corpus.txt에 총 학습 data 저장
@@ -65,9 +65,7 @@ jsonObj2 = json.loads(jsonString2)
 hospital = []; subject = []; location = [];
 tel = []; city = []; s_c = []; type = ['요양병원', '치과병원', '한방병원', '종합병원']; treat = []
 letter = []
-# subject = ['진료','진찰','과목','전문','종목']
-# location = ['주소','위치','가는 길','찾아가기','길찾기','네비게이션','지도','어디','어딨','어떻게 가','어딘지','가는길','네비']
-# tel = ['전화','번호','전화번호','연락','연락처']
+
 #
 for tag in jsonObj :
                 hospital.append(tag['BIZPLC_NM'])
@@ -96,12 +94,15 @@ hospital.append('해암요양병원')
 city = remove_redundancy(city)
 s_c = remove_redundancy(s_c)
 treat = remove_redundancy(treat)
+city2 = []
+for item in city :
+    city2.append(item[:-1])
 #
 #
 # f = open('new_test.txt', 'r',encoding= 'utf-8')
-f = open('total_train.txt', 'r',encoding= 'utf-8')
+f = open('test.txt', 'r',encoding= 'utf-8')
 # f2 = open('test_ner.txt','r',encoding= 'utf-8')
-f3 = open('ner_2.txt', 'a',encoding= 'utf-8')
+f3 = open('test_ner.txt', 'a',encoding= 'utf-8')
 
 count = 0; line_counter = 0
 for item in f :
@@ -154,16 +155,13 @@ for item in letter :
         #     f3.write('\n')
         # f3.write('\n')
 
-            if token[0] in city : # token[0] : 토큰된 단어 token[1] : 토크나이징 된 토큰의 형태소
+            if token[0] in city2 : # token[0] : 토큰된 단어 token[1] : 토크나이징 된 토큰의 형태소
                 hos = '<' + token[0] + ':City>'
                 fixed = item.replace(token[0], hos)
             elif token[0] in s_c :
                 sc = '<' + token[0] + ':S_c>'
                 if token[0] == '정왕동' or token[0] == '신천동' : fixed = item.replace(token[0], sc)
                 else : fixed = fixed.replace(token[0], sc)
-            elif token[0] in type :
-                tp = '<' + token[0] + ':Type>'
-                fixed = fixed.replace(token[0], tp)
             elif token[0] in treat :
                 tr = '<' + token[0] + ':Treat>'
                 fixed = fixed.replace(token[0], tr)
@@ -172,12 +170,10 @@ for item in letter :
         #
         for token2 in morphs :
             index += 1
-            if token2[0] in city : # token[0] : 토큰된 단어 token[1] : 토크나이징 된 토큰의 형태소
+            if token2[0] in city2 : # token[0] : 토큰된 단어 token[1] : 토크나이징 된 토큰의 형태소
                 f3.write('{0}\t{1}\t{2} B_City'.format(index, token2[0], token2[1]))
             elif token2[0] in s_c :
                 f3.write('{0}\t{1}\t{2} B_S_c'.format(index, token2[0], token2[1]))
-            elif token2[0] in type :
-                f3.write('{0}\t{1}\t{2} B_Type'.format(index, token2[0], token2[1]))
             elif token2[0] in treat :
                 f3.write('{0}\t{1}\t{2} B_Treat'.format(index, token2[0], token2[1]))
             else :

@@ -17,15 +17,16 @@ jsonObj = json.loads(jsonString)
 jsonObj2 = json.loads(jsonString2)
 
 # test_corpus = open('intent_2.txt', 'a',encoding= 'utf-8')
-f =  open('user_dic.txt', 'a',encoding= 'utf-8')
+f =  open('total_train.txt', 'a',encoding= 'utf-8')
 # f = open('intent_1.txt', 'r',encoding= 'utf-8')
 # f2 = open('intent_2.txt', 'r',encoding= 'utf-8')
-# f3 = open('total_train.txt', 'a',encoding= 'utf-8')
+f3 = open('test.txt', 'a',encoding= 'utf-8')
 count = 0
 def remove_redundancy(list_A) :           # list 중복제거 함수
     set_list = set(list_A)
     remove_list = list(set_list)
     return remove_list
+
 
 # 병원이름, 도시, 동, 종, 과목, 기타..
 hos = []; city = []; s_c = []; treat = [];
@@ -53,22 +54,23 @@ city = remove_redundancy(city); s_c = remove_redundancy(s_c)
 treat = remove_redundancy(treat)
 type = ['요양병원', '치과병원', '한방병원', '종합병원']
 
-for item in hos :
-    f.write(item + '\t' + 'NNG' + '\n')
+# for item in hos :
+#     f.write(item + '\t' + 'NNG' + '\n')
 for item in city :
     f.write(item + '\t' + 'NNG' + '\n')
-for item in s_c :
-    f.write(item + '\t' + 'NNG' + '\n')
-for item in treat :
-    f.write(item + '\t' + 'NNG' + '\n')
-for item in type :
-    f.write(item + '\t' + 'NNG' + '\n')
-f.close()
+# for item in s_c :
+#     f.write(item + '\t' + 'NNG' + '\n')
+# for item in treat :
+#     f.write(item + '\t' + 'NNG' + '\n')
+# for item in type :
+#     f.write(item + '\t' + 'NNG' + '\n')
+# f.close()
 #
 # for item in city :
-#         for item2 in type:
-#                 test_corpus.write('0000' + '\t' + item +' ' + item2 + ' 추천' +'\t\t' + '2' + '\n')
-#                 test_corpus.write('0000' + '\t' + item +' ' + item2 + ' 차트' +'\t\t' + '2' + '\n')
+#         for item2 in treat:
+#                 f3.write('0000' + '\t' + item[:-1] + '에 있는 ' + item2 + ' 병원 리스트' +'\t\t' + '2' + '\n')
+#                 f3.write('0000' + '\t' + item[:-1] + '에 있는 ' + item2 + ' 병원' + '\t\t' + '2' + '\n')
+#                 f3.write('0000' + '\t' + item[:-1] + '에 있는 ' + item2 + ' 병원 목록' + '\t\t' + '2' + '\n')
 # # Intent - 1
 #
 #         test_corpus.write('0000' + '\t' + tag['BIZPLC_NM'] + ' 정보!' + '\t\t' + '1' + '\n')
