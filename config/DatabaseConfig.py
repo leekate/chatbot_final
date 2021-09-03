@@ -1,10 +1,10 @@
 """
 자신 RDS 설정 값.
 """
-DB_HOST = 'database-chatbot.cw2yedyk3t2l.ap-northeast-2.rds.amazonaws.com'
+DB_HOST = 'database-chatbot.cbzpe1fkga6u.ap-northeast-2.rds.amazonaws.com'
 DB_USER = 'admin'
-DB_PASSWORD = 'wnsrb1234!'
-DB_NAME = 'chatbotdb'
+DB_PASSWORD = 'dlsvlslxm66'
+DB_NAME = 'chatbotDB'
 DB_PORT = 3306
 
 def DatabaseConfig():

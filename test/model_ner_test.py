@@ -1,10 +1,10 @@
-from utils.Preprocess import Preprocess
-from models.ner.NerModel import NerModel
+from Hospital_INFO_Chatbot.utils.Preprocess import Preprocess
+from Hospital_INFO_Chatbot.models.ner.NerModel import NerModel
 
-p = Preprocess(word2index_dic='../train_tools/dict/chatbot_dict.bin',
-               userdic='../utils/user_dic.txt')
+p = Preprocess(word2index_dic='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/train_tools/dict/chatbot_dict.bin',
+               userdic='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/utils/user_dic.txt')
 
-ner = NerModel(model_name='../models/ner/ner_train.h5', proprocess=p)
+ner = NerModel(model_name='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/models/ner/ner_train.h5', proprocess=p)
 hos = '고려병원'; city = '김포시'; s_c = '장기동'
 query = ['고려병원 진료과목 알려줭']
 

@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy as np
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras import preprocessing
-from config.GlobalParams import HOS_SUBJECT, HOS_TYPE, HOS_TEL, HOS_LOC
+from Hospital_INFO_Chatbot.config.GlobalParams import HOS_SUBJECT, HOS_TYPE, HOS_TEL, HOS_LOC
 
 # 개체명 인식 모델 모듈
 class NerModel:

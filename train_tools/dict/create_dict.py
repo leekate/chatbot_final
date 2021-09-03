@@ -1,4 +1,4 @@
-from utils.Preprocess import Preprocess
+from Hospital_INFO_Chatbot.utils.Preprocess import Preprocess
 from tensorflow.keras import preprocessing
 import pickle
 
@@ -9,10 +9,10 @@ def read_corpus_data(filename):
     return data
 
 # 말뭉치 데이터 가져오기
-corpus_data = read_corpus_data('./total_train.txt')
+corpus_data = read_corpus_data('/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/total_train.txt')
 
 
-p = Preprocess(userdic='../../utils/user_dic.txt')
+p = Preprocess(userdic='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/utils/user_dic.txt')
 dict = []
 for c in corpus_data:
     pos = p.pos(c[1])   #문장
@@ -30,7 +30,7 @@ tokenizer.fit_on_texts(dict)
 word_index = tokenizer.word_index
 print(word_index)
 # 사전 파일 생성
-f = open("chatbot_dict.bin", "wb")
+f = open("Hospital_INFO_Chatbot/train_tools/dict/chatbot_dict.bin", "wb")
 try:
     pickle.dump(word_index, f)
 except Exception as e:

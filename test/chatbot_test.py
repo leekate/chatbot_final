@@ -1,10 +1,10 @@
-from config.DatabaseConfig import *
-from utils.Database import Database
-from utils.Preprocess import Preprocess
+from Hospital_INFO_Chatbot.config.DatabaseConfig import *
+from Hospital_INFO_Chatbot.utils.Database import Database
+from Hospital_INFO_Chatbot.utils.Preprocess import Preprocess
 
 # 전처리 객체 생성
-p = Preprocess(word2index_dic='../train_tools/dict/chatbot_dict.bin',
-               userdic='../utils/user_dic.txt')
+p = Preprocess(word2index_dic='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/train_tools/dict/chatbot_dict.bin',
+               userdic='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/utils/user_dic.txt')
 
 # 질문/답변 학습 디비 연결 객체 생성
 db = Database(
@@ -19,14 +19,14 @@ db.connect()    # 디비 연결
 query = "고려병원 진료과목 알려주세용"
 
 # 의도 파악
-from models.intent.IntentModel import IntentModel
-intent = IntentModel(model_name='../models/intent/intent_model.h5', proprocess=p)
+from Hospital_INFO_Chatbot.models.intent.IntentModel import IntentModel
+intent = IntentModel(model_name='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/models/intent/intent_model.h5', proprocess=p)
 predict = intent.predict_class(query)
 intent_name = intent.labels[predict]
 
 # 개체명 인식
-from models.ner.NerModel import NerModel
-ner = NerModel(model_name='../models/ner/ner_train.h5', proprocess=p)
+from Hospital_INFO_Chatbot.models.ner.NerModel import NerModel
+ner = NerModel(model_name='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/models/ner/ner_train.h5', proprocess=p)
 predicts = ner.predict(query)
 ner_tags = ner.predict_tags(query)
 
@@ -39,7 +39,7 @@ print("=" * 100)
 print(len(ner_tags))
 
 # 답변 검색
-from utils.FindAnswer import FindAnswer
+from Hospital_INFO_Chatbot.utils.FindAnswer import FindAnswer
 
 try:
     f = FindAnswer(db)

@@ -1,10 +1,10 @@
-from utils.Preprocess import Preprocess
-from models.intent.IntentModel import IntentModel
+from Hospital_INFO_Chatbot.utils.Preprocess import Preprocess
+from Hospital_INFO_Chatbot.models.intent.IntentModel import IntentModel
 
-p = Preprocess(word2index_dic='../train_tools/dict/chatbot_dict.bin',
-               userdic='../utils/user_dic.txt')
+p = Preprocess(word2index_dic='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/train_tools/dict/chatbot_dict.bin',
+               userdic='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/utils/user_dic.txt')
 
-intent = IntentModel(model_name='../models/intent/intent_model.h5', proprocess=p)
+intent = IntentModel(model_name='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/models/intent/intent_model.h5', proprocess=p)
 query = []
 
 # query.append('하이!')

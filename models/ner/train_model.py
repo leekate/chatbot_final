@@ -3,7 +3,7 @@ import tensorflow as tf
 from tensorflow.keras import preprocessing
 from sklearn.model_selection import train_test_split
 import numpy as np
-from utils.Preprocess import Preprocess
+from Hospital_INFO_Chatbot.utils.Preprocess import Preprocess
 
 # 학습 파일 불러오기
 def read_file(file_name):   # 1.2.3 부터 라인별 /t 기준으로 튜플로 받아옴.
@@ -23,8 +23,8 @@ def read_file(file_name):   # 1.2.3 부터 라인별 /t 기준으로 튜플로 �
 # # print(read_file('./ner_train.txt'))
 #
 #
-p = Preprocess(word2index_dic='../../train_tools/dict/chatbot_dict.bin',
-               userdic='../../utils/user_dic.txt')
+p = Preprocess(word2index_dic='../Hospital_INFO_Chatbot/train_tools/dict/chatbot_dict.bin',
+               userdic='../Hospital_INFO_Chatbot/utils/user_dic.txt')
 
 # 학습용 말뭉치 데이터를 불러옴
 corpus = read_file('total_ner.txt')

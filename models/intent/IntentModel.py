@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras import preprocessing
-from config.GlobalParams import CITY
+from Hospital_INFO_Chatbot.config.GlobalParams import CITY
 # 의도 분류 모델 모듈
 class IntentModel:
     def __init__(self, model_name, proprocess):
@@ -26,7 +26,7 @@ class IntentModel:
         sequences = [self.p.get_wordidx_sequence(keywords)]
 
         # 단어 시퀀스 벡터 크기
-        from config.GlobalParams import MAX_SEQ_LEN
+        from Hospital_INFO_Chatbot.config.GlobalParams import MAX_SEQ_LEN
 
         # 패딩처리
         padded_seqs = preprocessing.sequence.pad_sequences(sequences, maxlen=MAX_SEQ_LEN, padding='post')

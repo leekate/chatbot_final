@@ -1,5 +1,5 @@
 import pymysql
-from config.DatabaseConfig import *
+from Hospital_INFO_Chatbot.config.DatabaseConfig import *
 
 db = None
 try :

@@ -12,9 +12,9 @@ queries = data['query'].tolist()
 intents = data['intent'].tolist()
 
 
-from utils.Preprocess import Preprocess
-p = Preprocess(word2index_dic='../../train_tools/dict/chatbot_dict.bin',
-               userdic='../../utils/user_dic.txt')
+from Hospital_INFO_Chatbot.utils.Preprocess import Preprocess
+p = Preprocess(word2index_dic='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/train_tools/dict/chatbot_dict.bin',
+               userdic='/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/utils/user_dic.txt')
 
 # 단어 시퀀스 생성
 sequences = []
@@ -28,7 +28,7 @@ for sentence in queries:
 
 # 단어 인덱스 시퀀스 벡터 ○2
 # 단어 시퀀스 벡터 크기
-from config.GlobalParams import MAX_SEQ_LEN
+from Hospital_INFO_Chatbot.config.GlobalParams import MAX_SEQ_LEN
 padded_seqs = preprocessing.sequence.pad_sequences(sequences, maxlen=MAX_SEQ_LEN, padding='post')
 
 #(484261, 14)

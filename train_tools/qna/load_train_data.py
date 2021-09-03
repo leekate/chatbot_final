@@ -1,6 +1,6 @@
 import pymysql
 import openpyxl
-from config.DatabaseConfig import * # DB 접속 정보 불러오기
+from Hospital_INFO_Chatbot.config.DatabaseConfig import * # DB 접속 정보 불러오기
 
 
 # 학습 데이터 초기화
@@ -38,7 +38,7 @@ def insert_data(db, xls_row):
         print('{} 저장'.format(query.value))
         db.commit()
 
-train_file = './train_data.xlsx'
+train_file = '/Users/jiwoo/PycharmProjects/chatbot_final/Hospital_INFO_Chatbot/train_tools/qna/train_data.xlsx'
 db = None
 try:
     db = pymysql.connect(
